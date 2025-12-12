@@ -572,7 +572,7 @@ export default function App() {
                       href="https://utas.to/tl4mj8?checkout=1" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full inline-flex justify-center items-center px-6 py-4 bg-[#5E4CE6] text-white rounded-xl shadow-lg hover:bg-[#4B3CC9] hover:-translate-y-0.5 transition-all font-bold"
+                      className="w-full inline-flex justify-center items-center px-6 py-4 bg-red-600 text-white rounded-xl shadow-lg hover:bg-red-700 hover:-translate-y-0.5 transition-all font-bold"
                     >
                         Ambil Promo Sekarang
                     </a>

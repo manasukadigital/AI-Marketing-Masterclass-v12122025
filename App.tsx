@@ -585,7 +585,7 @@ export default function App() {
                 { q: "Apakah cocok untuk pemula?", a: "Sangat cocok. Modul disusun dari dasar pengenalan AI hingga praktik lanjutan, dilengkapi full demo langkah demi langkah." },
                 { q: "Berapa lama akses kelas?", a: "Akses seumur hidup (Lifetime). Anda bisa belajar kapan saja dan di mana saja. Update modul juga akan diberikan gratis." },
                 { q: "Apakah ada garansi?", a: "Ya, kami memberikan garansi pengembalian dana 7 hari jika materi dirasa tidak sesuai dengan ekspektasi Anda (syarat & ketentuan berlaku)." },
-                { q: "Metode pembayaran apa yang tersedia?", a: "Kami menerima transfer bank lokal (BCA, Mandiri, BNI, BRI) dan E-Wallet (OVO, GoPay, Dana) melalui payment gateway yang aman." }
+                { q: "Metode pembayaran apa yang tersedia?", a: "Kami menerima pembayaran melalui QRIS, Virtual Account (BCA, BNI, BRI, Mandiri, Permata), dan E-Wallet (LinkAja, Dana, ShopeePay)." }
             ].map((faq, i) => (
                 <details key={i} className="group bg-white rounded-xl border border-gray-200 overflow-hidden transition-all hover:border-[#007EBD]/50">
                     <summary className="flex items-center justify-between p-5 cursor-pointer font-semibold text-[#000000] select-none">
@@ -624,13 +624,8 @@ export default function App() {
 
         <footer className="bg-white border-t border-gray-200">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-[#272525]/60">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
                     <div>© {new Date().getFullYear()} AI Marketing Masterclass. All rights reserved.</div>
-                    <div className="flex gap-6">
-                        <a href="#" className="hover:text-[#007EBD] transition-colors">Terms</a>
-                        <a href="#" className="hover:text-[#007EBD] transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-[#007EBD] transition-colors">Contact</a>
-                    </div>
                 </div>
             </div>
         </footer>

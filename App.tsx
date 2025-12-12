@@ -568,7 +568,12 @@ export default function App() {
                     <div className="mt-2 text-4xl font-extrabold text-[#5E4CE6]">Rp 97.000</div>
                     <p className="text-xs text-gray-500 mt-2 mb-6">Sekali bayar, akses selamanya</p>
                     
-                    <a href="#" className="w-full inline-flex justify-center items-center px-6 py-4 bg-[#5E4CE6] text-white rounded-xl shadow-lg hover:bg-[#4B3CC9] hover:-translate-y-0.5 transition-all font-bold">
+                    <a 
+                      href="https://utas.me/lp/infoprodukbagus/ai-marketing-masterclass" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex justify-center items-center px-6 py-4 bg-[#5E4CE6] text-white rounded-xl shadow-lg hover:bg-[#4B3CC9] hover:-translate-y-0.5 transition-all font-bold"
+                    >
                         Ambil Promo Sekarang
                     </a>
                     <p className="text-[10px] text-gray-400 mt-4">Garansi 7 hari uang kembali*</p>

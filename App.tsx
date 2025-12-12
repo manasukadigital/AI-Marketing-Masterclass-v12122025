@@ -569,14 +569,16 @@ export default function App() {
                     <p className="text-xs text-gray-500 mt-2 mb-6">Sekali bayar, akses selamanya</p>
                     
                     <a 
-                      href="https://utas.me/lp/infoprodukbagus/ai-marketing-masterclass" 
+                      href="https://utas.to/tl4mj8?checkout=1" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-full inline-flex justify-center items-center px-6 py-4 bg-[#5E4CE6] text-white rounded-xl shadow-lg hover:bg-[#4B3CC9] hover:-translate-y-0.5 transition-all font-bold"
                     >
                         Ambil Promo Sekarang
                     </a>
-                    <p className="text-[10px] text-gray-400 mt-4">Garansi 7 hari uang kembali*</p>
+                    <p className="text-[10px] text-gray-400 mt-4 px-2 leading-relaxed">
+                        Pembeli tidak perlu khawatir, karena seluruh transaksi diproses melalui pihak ketiga yang terpercaya, yaitu UTAS. Pembayaran dapat dilakukan melalui QRIS, Virtual Account (BCA, BNI, BRI, Mandiri, Permata), e-wallet (LinkAja, Dana, ShopeePay), serta kartu kredit/debit.
+                    </p>
                 </div>
             </div>
           </div>
@@ -589,8 +591,8 @@ export default function App() {
             {[
                 { q: "Apakah cocok untuk pemula?", a: "Sangat cocok. Modul disusun dari dasar pengenalan AI hingga praktik lanjutan, dilengkapi full demo langkah demi langkah." },
                 { q: "Berapa lama akses kelas?", a: "Akses seumur hidup (Lifetime). Anda bisa belajar kapan saja dan di mana saja. Update modul juga akan diberikan gratis." },
-                { q: "Apakah ada garansi?", a: "Ya, kami memberikan garansi pengembalian dana 7 hari jika materi dirasa tidak sesuai dengan ekspektasi Anda (syarat & ketentuan berlaku)." },
-                { q: "Metode pembayaran apa yang tersedia?", a: "Kami menerima pembayaran melalui QRIS, Virtual Account (BCA, BNI, BRI, Mandiri, Permata), dan E-Wallet (LinkAja, Dana, ShopeePay)." }
+                { q: "Bagaimana cara akses kelasnya?", a: "Setelah pembayaran terkonfirmasi, Anda akan otomatis mendapatkan email berisi detail login ke member area untuk mengakses seluruh materi video dan asset." },
+                { q: "Metode pembayaran apa yang tersedia?", a: "Pembeli tidak perlu khawatir, karena seluruh transaksi diproses melalui pihak ketiga yang terpercaya, yaitu UTAS. Pembayaran dapat dilakukan melalui QRIS, Virtual Account (BCA, BNI, BRI, Mandiri, Permata), e-wallet (LinkAja, Dana, ShopeePay), serta kartu kredit/debit." }
             ].map((faq, i) => (
                 <details key={i} className="group bg-white rounded-xl border border-gray-200 overflow-hidden transition-all hover:border-[#5E4CE6]/50">
                     <summary className="flex items-center justify-between p-5 cursor-pointer font-semibold text-[#231971] select-none">

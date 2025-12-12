@@ -1,96 +1,165 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function App() {
+  const [expandedModule, setExpandedModule] = useState<number | null>(null);
+
+  const toggleModule = (index: number) => {
+    setExpandedModule(expandedModule === index ? null : index);
+  };
+
   const modules = [
     {
       title: "Modul 1: AI Marketing Fundamentals",
       desc: "Fondasi penting agar tidak sekadar 'ikut-ikutan', tapi paham strategi inti marketing era AI.",
-      points: [
-        "Mindset benar menggunakan AI sebagai 'Co-Pilot' Strategis",
-        "Teknik Prompting 'Golden Formula' untuk hasil presisi",
-        "Setup Workspace produktivitas marketing 10x lipat"
-      ]
+      lessons: [
+        "Perkenalan Course",
+        "AI Marketing Tool Overview",
+        "Pengertian Prompt Engineering",
+        "AI Prompt Formula (Golden Rule)"
+      ],
+      resources: ["Dokumen Prompt Source", "List Tool AI Tambahan"]
     },
     {
       title: "Modul 2: Killer Brand Identity",
       desc: "Bangun persepsi brand premium yang membuat kompetitor terlihat amatir di mata audiens.",
-      points: [
-        "Menggali Unique Value Proposition (UVP) otomatis",
-        "Membuat Brand Voice & Persona yang konsisten",
-        "Studi kasus: Rebranding total dalam waktu singkat"
-      ]
+      lessons: [
+        "Pengenalan Branding Era AI",
+        "Pengertian & Manfaat Branding",
+        "3P Brand Strategy",
+        "Demo: Ciptakan Visi & Misi",
+        "Demo: Build Brand Purpose",
+        "Demo: Build Brand Promise",
+        "Demo: Build Positioning",
+        "Demo: Build Value Proposition",
+        "Demo: Build Differensiasi",
+        "Demo: Build Target Market",
+        "Demo: Brand Personality",
+        "Demo: Build Brand Story",
+        "Demo: Brand Slogan",
+        "Demo: Brand Tone Of Voice",
+        "Demo: Finalisasi Brand Guidelines"
+      ],
+      resources: ["Prompt Source Branding", "Tool AI Tambahan Branding"]
     },
     {
       title: "Modul 3: Unlimited Content Engine",
       desc: "Cara 'malas' tapi cerdas untuk mendominasi sosial media dengan ratusan konten.",
-      points: [
-        "Generate kalender konten 30 hari dalam 5 menit",
-        "Scripting viral untuk TikTok/Reels/Shorts",
-        "Repurposing konten: 1 ide jadi 10 format berbeda"
-      ]
+      lessons: [
+        "Pendahuluan Content Marketing",
+        "Pengertian Konten Marketing",
+        "Benefit Konten Marketing",
+        "Demo: Ciptakan Konten Pillar",
+        "Demo: Generate Ide Konten Tanpa Batas",
+        "Demo: Membuat Konten (Production)",
+        "Demo: Membuat Script Konten Viral",
+        "Demo: Membuat Copywriting Deskripsi/Caption",
+        "Demo: Membuat Kalender Konten Otomatis"
+      ],
+      resources: ["Prompt Source Konten", "Tool AI Konten Marketing"]
     },
     {
       title: "Modul 4: Salespage yang Menjual",
       desc: "Ubah pengunjung menjadi pembeli dengan struktur landing page yang menghipnotis.",
-      points: [
-        "Copywriting Headline yang 'mematikan' logika penundaan",
-        "Struktur anatomi Landing Page konversi tinggi",
-        "Membuat Offer Stack yang sulit ditolak"
+      lessons: [
+        "Pengenalan Salespage",
+        "Struktur Anatomi Salespage",
+        "Elemen Konversi Tinggi",
+        "Bedah Proven Salespage",
+        "Demo: Membuat Struktur Salespage",
+        "Demo: Membuat Copywriting Salespage",
+        "Demo: Teknik Revisi Salespage",
+        "Demo: Desain Visual Salespage"
       ]
     },
     {
       title: "Modul 5: Winning Ads Strategy",
       desc: "Berhenti bakar uang iklan. Buat iklan yang profit (ROAS positif) sejak hari pertama.",
-      points: [
-        "Membuat 50 variasi Ad Copy (FB/IG Ads) instan",
-        "Riset Interest & Hidden Audience targeting",
-        "Analisis pola iklan kompetitor yang sedang winning"
+      lessons: [
+        "Pengenalan Ads Strategy",
+        "Jenis Ide Konten Iklan",
+        "Struktur Copywriting Iklan",
+        "Creative Ads Lustre",
+        "Demo: Ads Strategy Execution",
+        "Demo: Mendapatkan Ide Konten Winning",
+        "Demo: Ciptakan Script Konten Ads",
+        "Demo: Membuat Copywriting Deskripsi Ads"
       ]
     },
     {
       title: "Modul 6: Visual Design & Creative",
       desc: "Hemat jutaan rupiah biaya desainer grafis dengan kemampuan AI Generative.",
-      points: [
-        "Membuat aset visual iklan high-quality tanpa skill gambar",
-        "Desain logo & identitas visual profesional",
-        "Edit & manipulasi foto produk otomatis untuk katalog"
+      lessons: [
+        "Pengenalan AI Design",
+        "3 Ide Desain untuk Eksekusi",
+        "Temukan Ide by Brand Produk",
+        "Ide Desain by Kompetitor",
+        "Temukan Ide by Ads Rekomendasi",
+        "Demo: Temukan Desain by Brand",
+        "Demo: Desain by Kompetitor",
+        "Demo: Useful Tool Designify",
+        "Demo: Useful Tool Probably",
+        "Demo: Useful Tool Flair AI"
       ]
     },
     {
       title: "Modul 7: Video Marketing Revolution",
       desc: "Produksi video promosi profesional tanpa perlu sewa studio atau kamera mahal.",
-      points: [
-        "Membuat video Faceless (tanpa wajah) yang menarik",
-        "AI Voiceover (Text-to-Speech) bahasa Indonesia natural",
-        "Editing video cepat & auto-captioning"
+      lessons: [
+        "Pengenalan Video Marketing",
+        "Dasar-dasar Video Iklan",
+        "Elemen Penting Video Iklan",
+        "Demo: Membuat Script & Konsep Video",
+        "Demo: Create Video dengan AI Lumen5",
+        "Demo: Create Video dengan Invideo AI",
+        "Demo: Create Video dengan Adcreative AI"
       ]
     },
     {
       title: "Modul 8: Market Research Intelligence",
       desc: "Intip dapur kompetitor dan pahami apa yang sebenarnya diinginkan pasar saat ini.",
-      points: [
-        "Bedah strategi marketing lawan bisnis secara legal",
-        "Validasi ide produk sebelum launching besar-besaran",
-        "Mencari celah pasar (Blue Ocean) yang belum digarap"
+      lessons: [
+        "Pengenalan Market Research",
+        "Tantangan & Solusi Bisnis Ecommerce",
+        "Pentingnya Riset Audience",
+        "Pentingnya Riset Kompetitor",
+        "Keuntungan Optimasi Produk",
+        "Demo: Riset Audience Mendalam",
+        "Demo: Riset Kompetitor",
+        "Demo: Optimasi Pengembangan Produk"
       ]
     },
     {
       title: "Modul 9: Email & CRM Automation",
       desc: "Bangun kolam uang Anda sendiri yang tidak bergantung pada algoritma sosial media.",
-      points: [
-        "Membuat Lead Magnet yang dikejar-kejar orang",
-        "Email Sequence untuk Nurturing & Closing otomatis",
-        "Teknik broadcast copywriting anti masuk spam"
+      lessons: [
+        "Pengenalan CRM & Email Marketing",
+        "Strategi Email Edukasi",
+        "Strategi Email Launching Produk",
+        "Teknik Email Urgency & Scarcity",
+        "Konsep Email Funneling",
+        "Demo: Create Email Edukasi",
+        "Demo: Create Email Peluncuran Produk",
+        "Demo: Email Urgency",
+        "Demo: Membuat Funnel Email Marketing"
       ]
     },
     {
       title: "Modul 10: The AI Chatbot Agent",
       desc: "Punya Customer Service 24 jam yang tidak pernah mengeluh, tidur, atau minta cuti.",
-      points: [
-        "Setup Custom GPT untuk melayani tanya jawab",
-        "Script handling keberatan calon pembeli otomatis",
-        "Integrasi chatbot ke alur penjualan bisnis"
+      lessons: [
+        "Pengenalan AI Chatbot",
+        "Persiapan & Setup Environment",
+        "Buat Akun Github",
+        "Daftar Aplikasi Render.com",
+        "Deploy Flowise di Render.com",
+        "Deploy Flowise di Railway",
+        "Pengenalan Interface Flowise",
+        "Tool di dalam Flowise",
+        "Demo: Customer Service Chatbot",
+        "Demo: AI Support & Marketing Agent",
+        "Demo: Koneksikan Chat ke Website",
+        "Demo: Koneksikan Chatbot ke Telegram"
       ]
     }
   ];
@@ -241,13 +310,13 @@ export default function App() {
                 <div className="w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white transform rotate-1 hover:rotate-0 transition-transform duration-500">
                   <div className="relative h-48 bg-gray-200">
                     <img
-                      src="https://images.unsplash.com/photo-1526378727650-7a0e3f9b3f1e?q=80&w=1200&auto=format&fit=crop"
+                      src="https://i.ibb.co.com/gZLgyRDQ/dreamina-2025-12-10-8200-Ultra-realistic-3-D-mockup-of-a-premium.jpg"
                       alt="Course Preview"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                       <div className="p-4 text-white">
-                        <p className="font-bold text-lg">AI Marketing Ecosystem</p>
+                        <p className="font-bold text-lg">AI Marketing Masterclass</p>
                         <p className="text-xs opacity-90">Video Course & Assets</p>
                       </div>
                     </div>
@@ -314,37 +383,91 @@ export default function App() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold sm:text-4xl text-[#000000]">Kurikulum Lengkap</h2>
             <p className="mt-4 text-lg text-[#272525]">
-              10 Modul komprehensif yang dirancang untuk membawa Anda dari pemula hingga mahir dalam menggunakan AI untuk pemasaran.
+              10 Modul dengan {modules.reduce((acc, curr) => acc + curr.lessons.length, 0)}+ video materi yang dirancang untuk membawa Anda dari pemula hingga mahir.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
             {modules.map((m, idx) => (
               <motion.article 
                 key={idx} 
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="group p-8 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#007EBD]/30 transition-all cursor-default flex flex-col h-full"
+                className={`group bg-white rounded-2xl border transition-all overflow-hidden ${expandedModule === idx ? 'border-[#007EBD] shadow-lg ring-1 ring-[#007EBD]/20' : 'border-gray-200 shadow-sm hover:border-[#007EBD]/50'}`}
               >
-                <div className="flex items-start justify-between mb-6">
-                    <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-50 text-[#007EBD] text-base font-bold shadow-sm">
+                <div 
+                  onClick={() => toggleModule(idx)}
+                  className="p-6 sm:p-8 cursor-pointer flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between"
+                >
+                  <div className="flex gap-4 items-start flex-1">
+                    <span className={`inline-flex items-center justify-center h-10 w-10 rounded-full text-base font-bold shadow-sm flex-shrink-0 transition-colors ${expandedModule === idx ? 'bg-[#007EBD] text-white' : 'bg-blue-50 text-[#007EBD]'}`}>
                         {idx + 1}
                     </span>
-                    <span className="text-xs font-medium text-[#007EBD] bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider border border-blue-100">Modul Video</span>
+                    <div>
+                      <h3 className={`text-xl font-bold transition-colors ${expandedModule === idx ? 'text-[#007EBD]' : 'text-[#000000]'}`}>{m.title}</h3>
+                      <p className="text-sm text-[#272525]/80 mt-1">{m.desc}</p>
+                      
+                      <div className="mt-3 flex items-center gap-4 text-xs font-medium text-gray-500">
+                        <span className="flex items-center gap-1">
+                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                           {m.lessons.length} Materi Video
+                        </span>
+                        {m.resources && (
+                          <span className="flex items-center gap-1">
+                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                             {m.resources.length} Lampiran
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className={`transform transition-transform duration-300 ${expandedModule === idx ? 'rotate-180' : ''}`}>
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-[#000000] group-hover:text-[#007EBD] transition-colors mb-3">{m.title}</h3>
-                <p className="text-sm text-[#272525]/80 leading-relaxed mb-6 border-b border-gray-100 pb-4">{m.desc}</p>
-                
-                <ul className="space-y-3 mt-auto">
-                  {m.points.map((p, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-[#272525]">
-                          <svg className="w-5 h-5 text-[#007EBD] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                          <span className="leading-snug">{p}</span>
-                      </li>
-                  ))}
-                </ul>
+
+                <AnimatePresence>
+                  {expandedModule === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden bg-slate-50 border-t border-gray-100"
+                    >
+                      <div className="p-6 sm:p-8 pt-4">
+                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Daftar Materi</h4>
+                        <ul className="space-y-3">
+                          {m.lessons.map((lesson, i) => (
+                              <li key={i} className="flex items-start gap-3 text-sm text-[#272525]">
+                                  <div className="mt-0.5 w-5 h-5 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0 text-[#007EBD]">
+                                    <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                  </div>
+                                  <span className="font-medium">{lesson}</span>
+                              </li>
+                          ))}
+                        </ul>
+
+                        {m.resources && (
+                           <div className="mt-6 pt-6 border-t border-gray-200/50">
+                             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Bonus Lampiran</h4>
+                             <div className="flex flex-wrap gap-2">
+                               {m.resources.map((res, i) => (
+                                 <span key={i} className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-100/50 text-[#007EBD] text-xs font-semibold border border-blue-100">
+                                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                   {res}
+                                 </span>
+                               ))}
+                             </div>
+                           </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.article>
             ))}
           </div>
@@ -360,17 +483,29 @@ export default function App() {
             <h2 className="text-3xl font-bold text-center mb-12 text-white">Kata Mereka yang Sudah Praktek</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { quote: "Akhirnya bisa buat konten harian tanpa pusing. Tekniknya langsung bisa dipakai.", name: "Rina", role: "Online Seller" },
-                { quote: "Iklan jadi lebih tertarget dan cost per lead turun drastis. Recommended!", name: "Anton", role: "UMKM Owner" },
-                { quote: "Modul chatbot dan email sangat membantu automasi customer support saya.", name: "Dita", role: "Freelancer" }
+                { 
+                  quote: "Saya dulu sering kehabisan ide buat konten sosmed. Setelah ikut kelas ini, saya bisa membuat stok konten yang banyak dengan sangat cepat. Tekniknya sangat praktis, tanpa basa-basi, dan langsung bisa dieksekusi. Sekarang akun saya jadi jauh lebih aktif dan interaksi dengan followers meningkat pesat!", 
+                  name: "Rina", 
+                  role: "Online Seller" 
+                },
+                { 
+                  quote: "Biasanya saya sering boncos kalau ngiklan karena targeting-nya kurang tepat. Di sini diajarin cara riset audience yang bener-bener spesifik pakai AI. Hasilnya? Biaya iklan jadi terasa jauh lebih hemat dan efisien, serta penjualan pun jadi lebih lancar. Sangat recommended untuk pebisnis!", 
+                  name: "Anton", 
+                  role: "UMKM Owner" 
+                },
+                { 
+                  quote: "Sebagai freelancer, saya sering kewalahan handle chat klien satu-satu. Modul chatbot & automasi CRM di course ini sangat membantu pekerjaan saya. Sekarang sistem bisa bantu jawab pertanyaan klien & follow up otomatis, jadi saya bisa fokus ngerjain projek dengan tenang.", 
+                  name: "Dita", 
+                  role: "Freelancer" 
+                }
               ].map((t, i) => (
-                  <div key={i} className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/15 transition-colors">
+                  <div key={i} className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/15 transition-colors flex flex-col h-full">
                     <div className="flex gap-1 mb-4 text-yellow-300">
                         {[1,2,3,4,5].map(s => <span key={s}>★</span>)}
                     </div>
-                    <p className="italic text-white/90 leading-relaxed mb-6">"{t.quote}"</p>
-                    <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-white text-[#007EBD] flex items-center justify-center text-sm font-bold shadow-lg">
+                    <p className="italic text-white/90 leading-relaxed mb-6 text-sm flex-grow">"{t.quote}"</p>
+                    <div className="flex items-center gap-3 mt-auto">
+                        <div className="h-10 w-10 rounded-full bg-white text-[#007EBD] flex items-center justify-center text-sm font-bold shadow-lg flex-shrink-0">
                             {t.name[0]}
                         </div>
                         <div>
@@ -408,8 +543,7 @@ export default function App() {
                         {[
                             "Akses video materi seumur hidup",
                             "Tanpa biaya langganan bulanan",
-                            "Full demo & resources file",
-                            "Akses grup support komunitas"
+                            "Full demo & resources file"
                         ].map((item, i) => (
                             <li key={i} className="flex items-center gap-3 text-sm text-[#272525]">
                                 <svg className="w-5 h-5 text-[#007EBD] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -417,6 +551,15 @@ export default function App() {
                             </li>
                         ))}
                     </ul>
+
+                    {/* New Image Insertion */}
+                    <div className="mt-8 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
+                        <img 
+                            src="https://i.ibb.co.com/WWzBYpn6/dreamina-2025-12-10-7949-Ultra-realistic-3-D-mockup-of-a-premium.jpg" 
+                            alt="AI Marketing Masterclass Box" 
+                            className="w-full h-auto object-cover"
+                        />
+                    </div>
                 </div>
                 
                 <div className="md:col-span-2 bg-gray-50 p-8 md:p-10 flex flex-col justify-center items-center border-t md:border-t-0 md:border-l border-gray-100 text-center relative">

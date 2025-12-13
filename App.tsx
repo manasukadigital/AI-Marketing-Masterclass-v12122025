@@ -167,8 +167,8 @@ export default function App() {
   // Primary Color: #5E4CE6
   // Heading: #231971
   // Body: #2A2742
-  const primaryButtonClass = "inline-flex justify-center items-center px-8 py-3.5 bg-[#5E4CE6] text-white rounded-lg shadow-lg hover:bg-[#4B3CC9] hover:-translate-y-0.5 transition-all font-semibold";
-
+  // Note: primaryButtonClass is no longer used for checkout buttons as they are now red.
+  
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -176,6 +176,8 @@ export default function App() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const checkoutLink = "https://utas.to/tl4mj8?checkout=1";
 
   return (
     <div className="min-h-screen bg-slate-50 text-[#2A2742] antialiased font-sans selection:bg-[#5E4CE6] selection:text-white">
@@ -217,9 +219,10 @@ export default function App() {
                 FAQ
               </a>
               <a
-                href="#pricing"
-                onClick={(e) => handleScroll(e, "pricing")}
-                className="ml-4 inline-flex items-center px-4 py-2 bg-[#5E4CE6] text-white rounded-md shadow-md hover:bg-[#4B3CC9] transition-all"
+                href={checkoutLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-4 inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-md shadow-md hover:bg-red-700 transition-all"
               >
                 Daftar Rp 97.000
               </a>
@@ -276,9 +279,10 @@ export default function App() {
 
                   <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <a
-                      href="#pricing"
-                      onClick={(e) => handleScroll(e, "pricing")}
-                      className={primaryButtonClass}
+                      href={checkoutLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex justify-center items-center px-8 py-3.5 bg-red-600 text-white rounded-lg shadow-lg hover:bg-red-700 hover:-translate-y-0.5 transition-all font-semibold"
                     >
                       Daftar Rp 97.000
                     </a>
@@ -342,9 +346,10 @@ export default function App() {
                     </div>
 
                     <a
-                      href="#pricing"
-                      onClick={(e) => handleScroll(e, "pricing")}
-                      className="block w-full text-center bg-[#2A2742] text-white py-3 rounded-lg font-bold hover:bg-[#231971] transition-colors"
+                      href={checkoutLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-colors"
                     >
                       Ambil Slot Sekarang
                     </a>
@@ -569,7 +574,7 @@ export default function App() {
                     <p className="text-xs text-gray-500 mt-2 mb-6">Sekali bayar, akses selamanya</p>
                     
                     <a 
-                      href="https://utas.to/tl4mj8?checkout=1" 
+                      href={checkoutLink} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-full inline-flex justify-center items-center px-6 py-4 bg-red-600 text-white rounded-xl shadow-lg hover:bg-red-700 hover:-translate-y-0.5 transition-all font-bold"
@@ -619,9 +624,10 @@ export default function App() {
             </div>
             <div>
               <a 
-                href="#pricing" 
-                onClick={(e) => handleScroll(e, "pricing")}
-                className="inline-flex items-center px-8 py-4 bg-[#5E4CE6] text-white rounded-xl font-bold shadow-lg hover:bg-[#4B3CC9] transition-colors"
+                href={checkoutLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-red-600 text-white rounded-xl font-bold shadow-lg hover:bg-red-700 transition-colors"
               >
                 Daftar Sekarang Rp 97.000
               </a>
